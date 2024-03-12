@@ -1,7 +1,7 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
-const score = document.querySelector('/#score'); // Use querySelector() to get the score element
+const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
 
 let time = 0;
@@ -36,7 +36,7 @@ function setDelay(difficulty) {
   } else if (difficulty === "hard") {
     return randomInteger (600, 1200);
   } else {
-    throw new Error("Invalide difficult level.");
+    throw new Error("Invalide difficulty level.");
   }
   
 }
@@ -56,8 +56,9 @@ function setDelay(difficulty) {
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
-  const index = randomInteger(0, holes.length - 1);
-  const hole = holes[index];
+  let index = Math.floor(Math.random() * holes.length);
+  let hole = holes[index];
+  
   if (hole === lastHole) {
     return chooseHole(holes);
   }
