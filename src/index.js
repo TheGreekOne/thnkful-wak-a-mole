@@ -167,12 +167,9 @@ function updateScore() {
 *
 */
 function clearScore() {
-  
-  points = 0;
-  
-  score.textContent = points;
-  
-  return points;
+ points = 0;
+ score.textContent = points;
+ return points;
 }
 
 /**
