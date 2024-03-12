@@ -90,11 +90,11 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  if (time > 0) {
-    const timeoutId = showUp();
+  if(time > 0){
+    let timeoutId = showUp();
     return timeoutId;
-  }  else {
-    const gameStopped = stopGame();
+  } else {
+    let gameStopped = stopGame();
     return gameStopped;
   }
 }
@@ -209,9 +209,7 @@ return timer;
 *
 */
 function whack(event) {
-  // TODO: Write your code here.
-  // call updateScore()
-  return points;
+  updateScore();
 }
 
 /**
@@ -219,18 +217,14 @@ function whack(event) {
 * Adds the 'click' event listeners to the moles. See the instructions
 * for an example on how to set event listeners using a for loop.
 */
-function setEventListeners(moles){
-  function whack(event) {
-    updateScore();
-    return points;
-  }
-
-  moles.forEach(mole => {
-    mole.addEventListener('click', whack);
-  });
-
+function setEventListeners(){
+  moles.forEach(
+    mole => mole.addEventListener('click', whack)
+  );
   return moles;
 }
+
+setEventListeners();
 
 /**
 *
