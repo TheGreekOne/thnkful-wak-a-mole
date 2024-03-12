@@ -264,7 +264,6 @@ function stopGame(){
 *
 */
 function startGame(){
-  console.log("Game started");
   setDuration(10);
   showUp();
 
