@@ -58,7 +58,7 @@ function setDelay(difficulty) {
 function chooseHole(holes) {
   let index = Math.floor(Math.random() * holes.length);
   let hole = holes[index];
-  
+
   if (hole === lastHole) {
     return chooseHole(holes);
   }
@@ -109,40 +109,37 @@ function gameOver() {
 *
 */
 function showUp() {
-  const delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
+  let delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
   const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
 
 /**
-*
-* The purpose of this function is to show and hide the mole given
-* a delay time and the hole where the mole is hidden. The function calls
-* `toggleVisibility` to show or hide the mole. The function should return
-* the timeoutID
-*
-*/
-function showAndHide(hole, delay){
-  toggleVisibility(hole, 'show');
+ * The purpose of this function is to show and hide the mole given
+ * a delay time and the hole where the mole is hidden. The function calls
+ * `toggleVisibility` to show or hide the mole. The function should return
+ * the timeoutID
+ */
+function showAndHide(hole, delay) {
+  toggleVisibility(hole); // Show the mole by adding the 'show' class
 
   const timeoutID = setTimeout(() => {
-    toggleVisibility(hole, 'show');
+    toggleVisibility(hole); // Hide the mole by removing the 'show' class
     gameOver();
-  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
-  
+  }, delay);
+
   return timeoutID;
 }
 
 /**
-*
-* Adds or removes the 'show' class that is defined in styles.css to 
-* a given hole. It returns the hole.
-*
-*/
-function toggleVisibility(hole){
-  hole.classList.toggle('show');  
+ * Adds or removes the 'show' class that is defined in styles.css to 
+ * a given hole. It returns the hole.
+ */
+function toggleVisibility(hole) {
+  hole.classList.toggle('show');
   return hole;
 }
+
 
 /**
 *
@@ -267,10 +264,10 @@ function stopGame(){
 function startGame(){
   setDuration(10);
   showUp();
-
   return "game started";
 }
 
+startButton.addEventListener('click', startGame);
 
 // Please do not modify the code below.
 // Used for testing purposes.
