@@ -153,9 +153,7 @@ function toggleVisibility(hole) {
 */
 function updateScore() {
   points++;
-
   score.textContent = points;
-
   return points;
 }
 
@@ -193,8 +191,8 @@ function updateTimer() {
 *
 */
 function startTimer() {
-timer = setInterval(updateTimer, 1000);
-return timer;
+  timer = setInterval(updateTimer, 1000);
+  return timer;
 }
 
 /**
