@@ -35,7 +35,7 @@ function setDelay(difficulty) {
   } else if (difficulty === "normal") {
     return 1000; //1000 miliseconds
   } else if (difficulty === "hard") {
-    reutrn randomInteger (600, 1200);
+    return randomInteger (600, 1200);
   } else {
     throw new Error("Invalide difficult level.");
   }
@@ -90,7 +90,7 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  if time > 0 {
+  if (time > 0) {
     const timeoutId = showUp();
     return timeoutId;
   }  else {
@@ -268,7 +268,7 @@ function startGame(){
   console.log("Game started");
   setDuration(10);
   showUp();
-  
+
   return "game started";
 }
 
