@@ -272,7 +272,9 @@ function startGame(){
   return "game started";
 }
 
-startButton.addEventListener("click", startGame);
+const startButton = document.getElementById('start');
+
+startButton.addEventListener('click', startGame);
 
 
 // Please do not modify the code below.
